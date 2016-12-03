@@ -21,6 +21,7 @@ class ButtonHandler implements ActionListener {
             GameVar.gameScreen = false;
             GameVar.endScreen = false;
             GameVar.settingScreen = true;
+            GUI.neededWinsField.setText(Score.getNeededWins() + " = Win Punktzahl (Enter zum speichern)");
         }
 
         //Settings
