@@ -23,7 +23,7 @@ class Paddle {
         height = 100;
         posX = 3*width;
         posY = GUI.screenHeight / 2;
-        reflectionX = 2;
+        reflectionX = 1;
         reflectionY = 1;
         this.keyCodeUp = keyCodeUp;
         this.keyCodeDown = keyCodeDown;
