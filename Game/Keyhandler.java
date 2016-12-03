@@ -2,6 +2,8 @@ package Game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.text.NumberFormat;
+import java.text.ParseException;
 
 /**
  * 01.12.2016
@@ -47,6 +49,16 @@ class Keyhandler implements KeyListener {
         } else if (GUI.paddleRightBtnDown.isSelected()) {
             GameVar.paddleRight.setKeyCodeDown(e.getKeyCode());
             GUI.paddleRightBtnDown.setSelected(false);
+        }
+
+        //Settings Needed-Wins Value
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && GUI.neededWinsField.hasFocus()) {
+            try {
+                Score.setNeededWins((NumberFormat.getInstance().parse(GUI.neededWinsField.getText().trim())).intValue());
+                GUI.neededWinsField.setText(Score.getNeededWins() + " = Win Punktzahl (Enter zum speichern)");
+            } catch (ParseException e1) {
+                e1.printStackTrace();
+            }
         }
     }
 
