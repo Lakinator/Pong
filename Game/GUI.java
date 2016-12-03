@@ -8,13 +8,14 @@ import javax.swing.*;
  */
 
 class GUI {
-    static final double VERSION = 0.7;
+    static final double VERSION = 0.8;
     static JFrame jf;
     static int screenWidth, screenHeight;
     static DrawLabel draw;
     static JButton startBtn, settingBtn;
     static JToggleButton paddleLeftBtnUp, paddleLeftBtnDown;
     static JToggleButton paddleRightBtnUp, paddleRightBtnDown;
+    static JTextField neededWinsField;
     static int btnWidth, btnHeight;
 
     GUI() {
@@ -33,11 +34,11 @@ class GUI {
         jf.setFocusable(true);
         jf.setTitle("Pong || Version " + VERSION);
 
+        //TODO: Aufräumen!
         draw = new DrawLabel();
         draw.setBounds(0, 0, screenWidth, screenHeight);
 
         startBtn = new JButton();
-        startBtn.setBounds(screenWidth / 2 - btnWidth / 2, screenHeight / 2 - btnHeight, btnWidth, btnHeight);
         startBtn.setFocusPainted(false);
         startBtn.setContentAreaFilled(false);
         startBtn.setBorder(null);
@@ -45,7 +46,6 @@ class GUI {
         startBtn.setVisible(true);
 
         settingBtn = new JButton();
-        settingBtn.setBounds(screenWidth / 2 - btnWidth / 2, screenHeight / 2 + btnHeight, btnWidth, btnHeight);
         settingBtn.setFocusPainted(false);
         settingBtn.setContentAreaFilled(false);
         settingBtn.setBorder(null);
@@ -54,29 +54,32 @@ class GUI {
 
         //Setting Screen
         paddleLeftBtnUp = new JToggleButton();
-        paddleLeftBtnUp.setBounds(screenWidth / 2 - btnWidth / 2, screenHeight / 2 - btnHeight/2, btnWidth, btnHeight/2);
         paddleLeftBtnUp.addActionListener(new ButtonHandler());
         paddleLeftBtnUp.setFocusable(false);
         paddleLeftBtnUp.setVisible(false);
 
         paddleLeftBtnDown = new JToggleButton();
-        paddleLeftBtnDown.setBounds(screenWidth / 2 - btnWidth / 2, screenHeight / 2 + btnHeight/2, btnWidth, btnHeight/2);
         paddleLeftBtnDown.addActionListener(new ButtonHandler());
         paddleLeftBtnDown.setFocusable(false);
         paddleLeftBtnDown.setVisible(false);
 
         paddleRightBtnUp = new JToggleButton();
-        paddleRightBtnUp.setBounds(screenWidth / 2 - btnWidth / 2, screenHeight / 2 + btnHeight + btnHeight/2, btnWidth, btnHeight/2);
         paddleRightBtnUp.addActionListener(new ButtonHandler());
         paddleRightBtnUp.setFocusable(false);
         paddleRightBtnUp.setVisible(false);
 
         paddleRightBtnDown = new JToggleButton();
-        paddleRightBtnDown.setBounds(screenWidth / 2 - btnWidth / 2, screenHeight / 2 + btnHeight*2 + btnHeight/2, btnWidth, btnHeight/2);
         paddleRightBtnDown.addActionListener(new ButtonHandler());
         paddleRightBtnDown.setFocusable(false);
         paddleRightBtnDown.setVisible(false);
 
+        neededWinsField = new JTextField();
+        neededWinsField.addKeyListener(new Keyhandler());
+        neededWinsField.setEditable(true);
+        neededWinsField.setFocusable(false);
+        neededWinsField.setVisible(false);
+
+        jf.add(neededWinsField);
         jf.add(paddleLeftBtnUp);
         jf.add(paddleLeftBtnDown);
         jf.add(paddleRightBtnUp);
