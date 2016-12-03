@@ -26,5 +26,15 @@ class DrawLabel extends JLabel{
             g.fillRect(GameVar.paddleLeft.getPosX(), GameVar.paddleLeft.getPosY(), GameVar.paddleLeft.getWidth(), GameVar.paddleLeft.getHeight());
             g.fillRect(GameVar.paddleRight.getPosX(), GameVar.paddleRight.getPosY(), GameVar.paddleRight.getWidth(), GameVar.paddleRight.getHeight());
         }
+
+        if (GameVar.endScreen) {
+            g.drawString(
+                    Score.getPlayerLeftWinCount() > Score.getPlayerRightWinCount() ?
+                            "Linker Spieler gewinnt mit " + Score.getPlayerLeftWinCount() + " zu " + Score.getPlayerRightWinCount() :
+                            "Rechter Spieler gewinnt mit " + Score.getPlayerRightWinCount() + " zu " + Score.getPlayerLeftWinCount(),
+                    GUI.screenWidth/2-100,
+                    GUI.screenHeight/2
+            );
+        }
     }
 }
