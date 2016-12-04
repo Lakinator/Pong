@@ -17,8 +17,9 @@ class Paddle {
     VK_DOWN = 40
      */
     private int keyCodeUp, keyCodeDown;
+    private char keyCharUp, keyCharDown;
 
-    Paddle(int keyCodeUp, int keyCodeDown) {
+    Paddle(int keyCodeUp, int keyCodeDown, char keyCharUp, char keyCharDown) {
         width = 20;
         height = 100;
         posX = 3*width;
@@ -27,6 +28,8 @@ class Paddle {
         reflectionY = 1;
         this.keyCodeUp = keyCodeUp;
         this.keyCodeDown = keyCodeDown;
+        this.keyCharUp = keyCharUp;
+        this.keyCharDown = keyCharDown;
     }
 
     int getPosX() {
@@ -107,5 +110,21 @@ class Paddle {
 
     public void setKeyCodeDown(int keyCodeDown) {
         this.keyCodeDown = keyCodeDown;
+    }
+
+    public char getKeyCharUp() {
+        return keyCharUp;
+    }
+
+    public void setKeyCharUp(char keyCharUp) {
+        this.keyCharUp = keyCharUp;
+    }
+
+    public char getKeyCharDown() {
+        return keyCharDown;
+    }
+
+    public void setKeyCharDown(char keyCharDown) {
+        this.keyCharDown = keyCharDown;
     }
 }
