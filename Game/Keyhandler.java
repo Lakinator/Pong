@@ -37,25 +37,31 @@ class Keyhandler implements KeyListener {
         }
 
         //Settings KeyCode Values
-        if (GUI.paddleLeftBtnUp.isSelected()) {
+        if (GUI.toggleButtons[0].isSelected()) {
             GameVar.paddleLeft.setKeyCodeUp(e.getKeyCode());
-            GUI.paddleLeftBtnUp.setSelected(false);
-        } else if (GUI.paddleLeftBtnDown.isSelected()) {
+            GameVar.paddleLeft.setKeyCharUp(e.getKeyChar());
+            GUI.toggleButtons[0].setSelected(false);
+        } else if (GUI.toggleButtons[1].isSelected()) {
             GameVar.paddleLeft.setKeyCodeDown(e.getKeyCode());
-            GUI.paddleLeftBtnDown.setSelected(false);
-        } else if (GUI.paddleRightBtnUp.isSelected()) {
+            GameVar.paddleLeft.setKeyCharDown(e.getKeyChar());
+            GUI.toggleButtons[1].setSelected(false);
+        } else if (GUI.toggleButtons[2].isSelected()) {
             GameVar.paddleRight.setKeyCodeUp(e.getKeyCode());
-            GUI.paddleRightBtnUp.setSelected(false);
-        } else if (GUI.paddleRightBtnDown.isSelected()) {
+            GameVar.paddleRight.setKeyCharUp(e.getKeyChar());
+            GUI.toggleButtons[2].setSelected(false);
+        } else if (GUI.toggleButtons[3].isSelected()) {
             GameVar.paddleRight.setKeyCodeDown(e.getKeyCode());
-            GUI.paddleRightBtnDown.setSelected(false);
+            GameVar.paddleRight.setKeyCharDown(e.getKeyChar());
+            GUI.toggleButtons[3].setSelected(false);
         }
 
         //Settings Needed-Wins Value
-        if (e.getKeyCode() == KeyEvent.VK_ENTER && GUI.neededWinsField.hasFocus()) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && GUI.textFields[0].hasFocus()) {
             try {
-                Score.setNeededWins((NumberFormat.getInstance().parse(GUI.neededWinsField.getText().trim())).intValue());
-                GUI.neededWinsField.setText(Score.getNeededWins() + " = Win Punktzahl (Enter zum speichern)");
+                Score.setNeededWins((NumberFormat.getInstance().parse(GUI.textFields[0].getText().trim()).intValue()));
+                GUI.textFields[0].setText(Score.getNeededWins() + "");
+                GUI.labels[GUI.toggleButtons.length].setText("Win Punktzahl (Enter zum speichern)(" + Score.getNeededWins() + "):");
+                GUI.textFields[0].setFocusable(false);
             } catch (ParseException e1) {
                 e1.printStackTrace();
             }
