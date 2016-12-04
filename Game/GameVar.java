@@ -14,8 +14,8 @@ class GameVar {
     static Ball ball;
 
     GameVar() {
-        paddleLeft = new Paddle(87, 83);
-        paddleRight = new Paddle(38, 40);
+        paddleLeft = new Paddle(87, 83, 'w', 's');
+        paddleRight = new Paddle(38, 40 , '\uFFFF', '\uFFFF');
         ball = new Ball();
     }
 }
