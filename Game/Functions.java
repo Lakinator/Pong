@@ -9,47 +9,83 @@ import java.util.Random;
 
 class Functions {
     static void setBtnMenu() {
-        GUI.paddleLeftBtnUp.setVisible(false);
-        GUI.paddleLeftBtnDown.setVisible(false);
-        GUI.paddleRightBtnUp.setVisible(false);
-        GUI.paddleRightBtnDown.setVisible(false);
-        GUI.neededWinsField.setFocusable(false);
-        GUI.neededWinsField.setVisible(false);
-        GUI.startBtn.setVisible(true);
-        GUI.settingBtn.setVisible(true);
+        //Alle Buttons
+        for (int i = GUI.buttons.length - 1; i >= 0; i--) {
+            GUI.buttons[i].setVisible(true);
+        }
+        //Alle Togglebuttons
+        for (int i = GUI.toggleButtons.length - 1; i >= 0; i--) {
+            GUI.toggleButtons[i].setVisible(false);
+        }
+        //Alle Labels
+        for (int i = GUI.labels.length - 1; i >= 0; i--) {
+            GUI.labels[i].setVisible(false);
+        }
+        //Alle Textfelder
+        for (int i = GUI.textFields.length - 1; i >= 0; i--) {
+            GUI.textFields[i].setFocusable(false);
+            GUI.textFields[i].setVisible(false);
+        }
     }
 
     static void setBtnSettings() {
-        GUI.startBtn.setVisible(false);
-        GUI.settingBtn.setVisible(false);
-        GUI.paddleLeftBtnUp.setVisible(true);
-        GUI.paddleLeftBtnDown.setVisible(true);
-        GUI.paddleRightBtnUp.setVisible(true);
-        GUI.paddleRightBtnDown.setVisible(true);
-        GUI.neededWinsField.setFocusable(true);
-        GUI.neededWinsField.setVisible(true);
+        //Alle Buttons
+        for (int i = GUI.buttons.length - 1; i >= 0; i--) {
+            GUI.buttons[i].setVisible(false);
+        }
+        //Alle Togglebuttons
+        for (int i = GUI.toggleButtons.length - 1; i >= 0; i--) {
+            GUI.toggleButtons[i].setVisible(true);
+        }
+        //Alle Labels
+        for (int i = GUI.labels.length - 1; i >= 0; i--) {
+            GUI.labels[i].setVisible(true);
+        }
+        //Alle Textfelder
+        for (int i = GUI.textFields.length - 1; i >= 0; i--) {
+            GUI.textFields[i].setFocusable(true);
+            GUI.textFields[i].setVisible(true);
+        }
     }
 
     static void setBtnGame() {
-        GUI.startBtn.setVisible(false);
-        GUI.settingBtn.setVisible(false);
-        GUI.paddleLeftBtnUp.setVisible(false);
-        GUI.paddleLeftBtnDown.setVisible(false);
-        GUI.paddleRightBtnUp.setVisible(false);
-        GUI.paddleRightBtnDown.setVisible(false);
-        GUI.neededWinsField.setFocusable(false);
-        GUI.neededWinsField.setVisible(false);
+        //Alle Buttons
+        for (int i = GUI.buttons.length - 1; i >= 0; i--) {
+            GUI.buttons[i].setVisible(false);
+        }
+        //Alle Togglebuttons
+        for (int i = GUI.toggleButtons.length - 1; i >= 0; i--) {
+            GUI.toggleButtons[i].setVisible(false);
+        }
+        //Alle Labels
+        for (int i = GUI.labels.length - 1; i >= 0; i--) {
+            GUI.labels[i].setVisible(false);
+        }
+        //Alle Textfelder
+        for (int i = GUI.textFields.length - 1; i >= 0; i--) {
+            GUI.textFields[i].setFocusable(false);
+            GUI.textFields[i].setVisible(false);
+        }
     }
 
     static void setBtnEnd() {
-        GUI.startBtn.setVisible(false);
-        GUI.settingBtn.setVisible(false);
-        GUI.paddleLeftBtnUp.setVisible(false);
-        GUI.paddleLeftBtnDown.setVisible(false);
-        GUI.paddleRightBtnUp.setVisible(false);
-        GUI.paddleRightBtnDown.setVisible(false);
-        GUI.neededWinsField.setFocusable(false);
-        GUI.neededWinsField.setVisible(false);
+        //Alle Buttons
+        for (int i = GUI.buttons.length - 1; i >= 0; i--) {
+            GUI.buttons[i].setVisible(false);
+        }
+        //Alle Togglebuttons
+        for (int i = GUI.toggleButtons.length - 1; i >= 0; i--) {
+            GUI.toggleButtons[i].setVisible(false);
+        }
+        //Alle Labels
+        for (int i = GUI.labels.length - 1; i >= 0; i--) {
+            GUI.labels[i].setVisible(false);
+        }
+        //Alle Textfelder
+        for (int i = GUI.textFields.length - 1; i >= 0; i--) {
+            GUI.textFields[i].setFocusable(false);
+            GUI.textFields[i].setVisible(false);
+        }
     }
 
     static void restart() {
