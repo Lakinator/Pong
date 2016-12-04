@@ -16,43 +16,34 @@ class GameLoop {
         tm.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                GUI.screenWidth = GUI.jf.getWidth();
-                GUI.screenHeight = GUI.jf.getHeight();
-                GUI.draw.setBounds(0, 0, GUI.screenWidth, GUI.screenHeight);
-                GUI.startBtn.setBounds(GUI.screenWidth / 2 - GUI.btnWidth / 2, GUI.screenHeight / 2 - 80, GUI.btnWidth, GUI.btnHeight);
-                GUI.settingBtn.setBounds(GUI.screenWidth / 2 - GUI.btnWidth / 2, GUI.screenHeight / 2 + GUI.btnHeight, GUI.btnWidth, GUI.btnHeight);
-                GUI.paddleLeftBtnUp.setBounds(GUI.screenWidth / 2 - GUI.btnWidth / 2, GUI.screenHeight / 2 - GUI.btnHeight / 2, GUI.btnWidth, GUI.btnHeight / 2);
-                GUI.paddleLeftBtnDown.setBounds(GUI.screenWidth / 2 - GUI.btnWidth / 2, GUI.screenHeight / 2 + GUI.btnHeight / 2, GUI.btnWidth, GUI.btnHeight / 2);
-                GUI.paddleRightBtnUp.setBounds(GUI.screenWidth / 2 - GUI.btnWidth / 2, GUI.screenHeight / 2 + GUI.btnHeight + GUI.btnHeight / 2, GUI.btnWidth, GUI.btnHeight / 2);
-                GUI.paddleRightBtnDown.setBounds(GUI.screenWidth / 2 - GUI.btnWidth / 2, GUI.screenHeight / 2 + GUI.btnHeight * 2 + GUI.btnHeight / 2, GUI.btnWidth, GUI.btnHeight / 2);
-                GUI.neededWinsField.setBounds(GUI.screenWidth / 2 - GUI.btnWidth / 2, GUI.screenHeight / 2 - GUI.btnHeight, GUI.btnWidth, GUI.btnHeight/3);
+               ButtonPosition.refreshPositions();
 
                 //Menu Loop
                 if (GameVar.menuScreen) {
-                    GUI.jf.setTitle("Pong || Version " + GUI.VERSION + " || Hauptmenü");
+                    GUI.jf.setTitle("Pong || Version " + GUI.VERSION + " [ALPHA] || lakinator.bplaced.net || Hauptmenü");
                     Functions.setBtnMenu();
                     GUI.jf.setResizable(true);
                 }
 
                 //Setting Screen Loop
                 if (GameVar.settingScreen) {
-                    GUI.jf.setTitle("Pong || Version " + GUI.VERSION + " || Settings - Escape drücken für Hauptmenü");
+                    GUI.jf.setTitle("Pong || Version " + GUI.VERSION + " [ALPHA] || lakinator.bplaced.net || Settings - Escape drücken für Hauptmenü");
                     Functions.setBtnSettings();
                     GUI.jf.setResizable(true);
 
-                    if (!GUI.paddleLeftBtnUp.isSelected())
-                        GUI.paddleLeftBtnUp.setText("PaddleLeftUpKey: " + GameVar.paddleLeft.getKeyCodeUp());
-                    if (!GUI.paddleLeftBtnDown.isSelected())
-                        GUI.paddleLeftBtnDown.setText("PaddleLeftDownKey: " + GameVar.paddleLeft.getKeyCodeDown());
-                    if (!GUI.paddleRightBtnUp.isSelected())
-                        GUI.paddleRightBtnUp.setText("PaddleRightUpKey: " + GameVar.paddleRight.getKeyCodeUp());
-                    if (!GUI.paddleRightBtnDown.isSelected())
-                        GUI.paddleRightBtnDown.setText("PaddleRightDownKey: " + GameVar.paddleRight.getKeyCodeDown());
+                    if (!GUI.toggleButtons[0].isSelected())
+                        GUI.toggleButtons[0].setText(GameVar.paddleLeft.getKeyCharUp() + " (" + GameVar.paddleLeft.getKeyCodeUp() + ")");
+                    if (!GUI.toggleButtons[1].isSelected())
+                        GUI.toggleButtons[1].setText(GameVar.paddleLeft.getKeyCharDown() + " (" + GameVar.paddleLeft.getKeyCodeDown() + ")");
+                    if (!GUI.toggleButtons[2].isSelected())
+                        GUI.toggleButtons[2].setText(GameVar.paddleRight.getKeyCharUp() + " (" + GameVar.paddleRight.getKeyCodeUp() + ")");
+                    if (!GUI.toggleButtons[3].isSelected())
+                        GUI.toggleButtons[3].setText(GameVar.paddleRight.getKeyCharDown() + " (" + GameVar.paddleRight.getKeyCodeDown() + ")");
                 }
 
                 //Game Loop
                 if (GameVar.gameScreen) {
-                    GUI.jf.setTitle("Pong || Version " + GUI.VERSION + " || Game || Score Links: " + Score.getPlayerLeftWinCount() + " || Score Rechts " + Score.getPlayerRightWinCount());
+                    GUI.jf.setTitle("Pong || Version " + GUI.VERSION + " [ALPHA] || lakinator.bplaced.net || Game || Score Links: " + Score.getPlayerLeftWinCount() + " || Score Rechts " + Score.getPlayerRightWinCount() + " || Sieg bei erreichen von " + Score.getNeededWins() + " Punkten");
                     Functions.setBtnGame();
                     GUI.jf.setResizable(false); //Vorerst false, da sonst durch schnelles Resizen der Ball verschwinden kann
 
@@ -170,7 +161,7 @@ class GameLoop {
 
                 //End Loop
                 if (GameVar.endScreen) {
-                    GUI.jf.setTitle("Pong || Version " + GUI.VERSION + " || Ende");
+                    GUI.jf.setTitle("Pong || Version " + GUI.VERSION + " [ALPHA] || lakinator.bplaced.net || Ende");
                     Functions.setBtnEnd();
                     //TODO: End Screen
                 }
