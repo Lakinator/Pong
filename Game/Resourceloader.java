@@ -11,12 +11,14 @@ import java.io.*;
 
 class Resourceloader {
 
-    private static BufferedImage startBtnImage, settingBtnImage;
+    private static BufferedImage startBtnImage, startBtnActiveImage, settingBtnImage, settingBtnActiveImage;
 
     Resourceloader() {
         try {
-            startBtnImage = ImageIO.read(Resourceloader.class.getResourceAsStream("\\res\\startBtn.png"));
-            settingBtnImage = ImageIO.read(Resourceloader.class.getResourceAsStream("\\res\\settingBtn.png"));
+            startBtnImage = ImageIO.read(Resourceloader.class.getResourceAsStream("res/startBtn.png"));
+            settingBtnImage = ImageIO.read(Resourceloader.class.getResourceAsStream("res/settingBtn.png"));
+            startBtnActiveImage = ImageIO.read(Resourceloader.class.getResourceAsStream("res/startBtnACTIVE.png"));
+            settingBtnActiveImage = ImageIO.read(Resourceloader.class.getResourceAsStream("res/settingBtnACTIVE.png"));
         } catch(IOException e) {
             e.printStackTrace();
         }
@@ -28,5 +30,13 @@ class Resourceloader {
 
     public static BufferedImage getSettingBtnImage() {
         return settingBtnImage;
+    }
+
+    public static BufferedImage getStartBtnActiveImage() {
+        return startBtnActiveImage;
+    }
+
+    public static BufferedImage getSettingBtnActiveImage() {
+        return settingBtnActiveImage;
     }
 }
