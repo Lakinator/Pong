@@ -17,8 +17,25 @@ class DrawLabel extends JLabel{
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         if (GameVar.menuScreen) {
-            g.drawImage(Resourceloader.getStartBtnImg(), GUI.screenWidth / 2 - GUI.btnWidth / 2, GUI.screenHeight / 2 - GUI.btnHeight, GUI.btnWidth, GUI.btnHeight, null);
-            g.drawImage(Resourceloader.getSettingBtnImage(), GUI.screenWidth / 2 - GUI.btnWidth / 2, GUI.screenHeight / 2 + GUI.btnHeight, GUI.btnWidth, GUI.btnHeight, null);
+            //Start Button
+            g.drawImage(GUI.isStartBtnActive ?
+                    Resourceloader.getStartBtnActiveImage() :
+                    Resourceloader.getStartBtnImg(),
+                    GUI.screenWidth / 2 - GUI.btnWidth / 2,
+                    GUI.screenHeight / 2 - GUI.btnHeight,
+                    GUI.btnWidth, GUI.btnHeight,
+                    null
+            );
+            //Setting Button
+            g.drawImage(GUI.isSettingBtnActive ?
+                    Resourceloader.getSettingBtnActiveImage() :
+                    Resourceloader.getSettingBtnImage(),
+                    GUI.screenWidth / 2 - GUI.btnWidth / 2,
+                    GUI.screenHeight / 2 + GUI.btnHeight,
+                    GUI.btnWidth,
+                    GUI.btnHeight,
+                    null
+            );
         }
 
         if (GameVar.gameScreen) {
